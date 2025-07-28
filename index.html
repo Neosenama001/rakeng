@@ -1,9 +1,9 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Food Ordering | Home</title>
+  <title>Rakeng | Home</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -20,6 +20,7 @@
       <a href="checkout.html">Cart</a>
     </div>
   </nav>
+
   <!-- Sidebar for mobile -->
   <div class="sidebar" id="sidebar">
     <a href="javascript:void(0)" class="close-btn" onclick="toggleSidebar()">×</a>
@@ -31,7 +32,7 @@
   <section class="section section-1">
     <div class="left">
       <h1>Delicious <span>Meals</span> Anytime</h1>
-      <p>At RAK'ENG, we're more than just fast food, we're a vibrant spot where flavor meets innovation. We serve modern, delicious meals crafted for everyone, from the youngsters craving bold tastes to the elderly seeking comforting classics. Whether you're grabbing a quick bite or enjoying a family outing, we’ve got something for every <span>appetite</span>, every <span>age</span>, every <span>time</span></p>
+      <p>At RAK'ENG, we're more than just fast food… every <span>appetite</span>, every <span>age</span>, every <span>time</span></p>
       <a class="map-btn" href="https://www.google.com/maps" target="_blank">Find Us on Map</a>
     </div>
     <div class="right">
@@ -39,38 +40,77 @@
     </div>
   </section>
 
-  <!-- Section 2 -->
+  <!-- Section 2: Platters -->
   <section class="section section-2">
     <h2 class="centered">Explore Our Platters of Taste</h2>
-    <div class="train-items" id="trainItems"></div>
+    <div class="train-items" id="trainItems">
+      <div class="item" onclick="showFullscreen(1)">
+        <img src="premium_platter.jpg" alt="Premium Platter" />
+        <h4>Premium Platter</h4>
+        <p class="description">Grilled chicken, spicy wings, samosas, fries.</p>
+        <p>R249.99 - 15 mins</p>
+      </div>
+      <div class="item" onclick="showFullscreen(2)">
+        <img src="mini_platter.jpg" alt="Mini Platter" />
+        <h4>Mini Platter</h4>
+        <p class="description">Mini sliders, spicy fries, nuggets.</p>
+        <p>R169.99 - 10 mins</p>
+      </div>
+    </div>
   </section>
 
   <hr />
 
-  <!-- Section 3 -->
+  <!-- Section 3: Popular Dishes -->
   <section class="section section-3 vertical">
     <h2 class="centered">Popular Dishes</h2>
-    <div class="carousel" id="carousel1"></div>
+    <div class="carousel" id="carousel1">
+      <div class="item" onclick="showFullscreen(3)">
+        <img src="patty_planet.jpg" alt="Patty Planet" />
+        <h4>Patty Planet</h4>
+        <p>Beef patty, fresh lettuce, tomato, cheese.</p>
+        <p>R59.99 - 12 mins</p>
+      </div>
+      <div class="item" onclick="showFullscreen(4)">
+        <img src="triple_planet.jpg" alt="Triple Planet" />
+        <h4>Triple Planet</h4>
+        <p>Three stacked patties, BBQ sauce, onion rings.</p>
+        <p>R69.99 - 8 mins</p>
+      </div>
+    </div>
   </section>
 
   <hr />
 
-  <!-- Section 4 -->
+  <!-- Section 4: Quick Bites -->
   <section class="section section-4 vertical">
     <h2 class="centered">Quick Bites</h2>
-    <div class="carousel" id="carousel2"></div>
+    <div class="carousel" id="carousel2">
+      <div class="item" onclick="showFullscreen(5)">
+        <img src="hotdog.jpg" alt="Hotdog" />
+        <h4>Hotdog</h4>
+        <p>Classic hotdog, mustard, ketchup, fried onions.</p>
+        <p>R40 - 10 mins</p>
+      </div>
+      <div class="item" onclick="showFullscreen(6)">
+        <img src="chefs_special.jpg" alt="Chef's Special" />
+        <h4>Chef's Special</h4>
+        <p>Signature dish by our head chef with gourmet toppings.</p>
+        <p>R299.99 - 20 mins</p>
+      </div>
+    </div>
   </section>
 
   <hr />
 
-  <!-- Section 5 -->
+  <!-- Section 5: About Chefs -->
   <section class="section section-5">
     <div class="left">
       <img src="chefs.jpeg" alt="Chef" class="circle-img bounce-img" />
     </div>
     <div class="right">
       <h2>Our Passionate Chef's</h2>
-      <p>Behind every delicious bite is a team of passionate chefs dedicated to culinary excellence. Our chefs bring a blend of creativity, experience, and love for food to every dish they prepare. With backgrounds in both traditional and modern cuisine, they work tirelessly to craft meals that are not only tasty but also memorable. From perfecting classic favorites to experimenting with bold new flavors, our chefs are the heart of our kitchen — committed to serving you fresh, high-quality food every time you visit.</p>
+      <p>Behind every delicious bite is a team of passionate chefs… committed to serving you fresh, high‑quality food every time you visit.</p>
     </div>
   </section>
 
@@ -81,18 +121,18 @@
     <h2 class="centered">What Our Customers Say</h2>
     <div class="reviews">
       <div class="review">
-        <img src="section 1.jpeg" alt="Customer 1" class="review-img">
-        <p>"Absolutely love the modern twist on classic dishes! Highly recommend the Premium Platter!"</p>
+        <img src="customer1.jpg" alt="Customer 1" class="review-img">
+        <p>"Absolutely love the modern twist on classic dishes!"</p>
         <h4>- Samantha</h4>
       </div>
       <div class="review">
-        <img src="section 1.jpeg" alt="Customer 2" class="review-img">
-        <p>"Great food, friendly staff, and super fast service. My kids enjoyed everything!"</p>
+        <img src="customer2.jpg" alt="Customer 2" class="review-img">
+        <p>"Great food, friendly staff, and super fast service."</p>
         <h4>- John</h4>
       </div>
       <div class="review">
-        <img src="section 1.jpeg" alt="Customer 3" class="review-img">
-        <p>"I can't stop ordering the Patty Planet. Juicy, flavorful, and always hot!"</p>
+        <img src="customer3.jpg" alt="Customer 3" class="review-img">
+        <p>"I can't stop ordering the Patty Planet. Always hot!"</p>
         <h4>- Aisha</h4>
       </div>
     </div>
@@ -104,18 +144,16 @@
   <section class="section section-7 vertical">
     <h2 class="centered">Notices</h2>
     <img src="notice.jpeg" alt="Notice" class="circle-img bounce-img" style="width: 200px; height: 200px;">
-    <p style="text-align:center; max-width: 600px;">Stay tuned for our seasonal offers, chef specials, and limited-time discounts. Visit regularly or subscribe for updates!</p>
+    <p style="text-align:center; max-width: 600px;">Stay tuned for our seasonal offers, chef specials, and limited‑time discounts…</p>
   </section>
 
   <!-- Footer -->
   <footer class="animated-footer">
     <div class="footer-content">
-      <img src="logo 1.jpeg" alt="Logo" />
+      <img src="logo1.jpeg" alt="Logo" />
       <p>&copy; 2025 Food Ordering | Designed by Neo</p>
       <div class="footer-links">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="mailto:contact@rakengfoods.com">Email</a>
+        <a href="#">Privacy</a><a href="#">Terms</a><a href="mailto:contact@rakengfoods.com">Email</a>
       </div>
       <div class="socials">
         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -129,25 +167,17 @@
     </div>
   </footer>
 
-  <!-- Cart Icon -->
-  <div id="cart-icon" onclick="toggleCartPopup()">
-    <i class="fas fa-shopping-cart"></i>
-    <span id="cart-count">0</span>
+  <!-- Cart Icon & Popup -->
+  <div id="cart-icon" onclick="toggleCartPopup()"><i class="fas fa-shopping-cart"></i><span id="cart-count">0</span></div>
+  <div id="cart-popup">
+    <div class="popup-header"><h3>Your Cart</h3><button onclick="toggleCartPopup()">×</button></div>
+    <div id="popup-cart-items"></div>
+    <div class="popup-footer"><p>Total: R<span id="popup-total">0</span></p><a href="checkout.html"><button>Go to Checkout</button></a></div>
   </div>
 
-  <!-- Cart Popup -->
-  <div id="cart-popup">
-    <div class="popup-header">
-      <h3>Your Cart</h3>
-      <button onclick="toggleCartPopup()">×</button>
-    </div>
-    <div id="popup-cart-items"></div>
-    <div class="popup-footer">
-      <p>Total: R<span id="popup-total">0</span></p>
-      <a href="checkout.html"><button>Go to Checkout</button></a>
-    </div>
-  </div>
-<div id="fullscreenView" class="fullscreen-overlay" style="display:none"></div>
+  <!-- Fullscreen Overlay -->
+  <div id="fullscreenView" class="fullscreen-overlay" style="display:none;"></div>
+
   <script src="script.js"></script>
 </body>
 </html>
