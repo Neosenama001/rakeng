@@ -1,60 +1,28 @@
 const platters = [
-  { id: 1, name: "Premium Platter", img: "section 1.jpeg", time: "15 mins", price: 249.99, desc: "Grilled chicken, spicy wings, samosas, fries." },
-  { id: 2, name: "Mini Platter", img: "mini platter.jpg", time: "10 mins", price: 169.99, desc: "Mini sliders, spicy fries, nuggets." },
-  { id: 2, name: "Mini Platter", img: "mini platter.jpg", time: "10 mins", price: 169.99, desc: "Mini sliders, spicy fries, nuggets." },
-  { id: 2, name: "Mini Platter", img: "mini platter.jpg", time: "10 mins", price: 169.99, desc: "Mini sliders, spicy fries, nuggets." }
+  { id: 1, name: "Premium Platter", time: "15 mins", price: 249.99, desc: "Grilled chicken, spicy wings, samosas, fries." },
+  { id: 2, name: "Mini Platter", time: "10 mins", price: 169.99, desc: "Mini sliders, spicy fries, nuggets." }
 ];
 
 const popularDishes = [
-  { id: 3, name: "Patty Planet", img: "mini platter.jpg", time: "12 mins", price: 59.99, desc: "Beef patty, fresh lettuce, tomato, cheese." },
-  { id: 4, name: "Triple Planet", img: "mini platter.jpg", time: "8 mins", price: 69.99, desc: "Three stacked patties, BBQ sauce, onion rings." },
-  { id: 3, name: "Patty Planet", img: "mini platter.jpg", time: "12 mins", price: 59.99, desc: "Beef patty, fresh lettuce, tomato, cheese." },
-  { id: 4, name: "Triple Planet", img: "mini platter.jpg", time: "8 mins", price: 69.99, desc: "Three stacked patties, BBQ sauce, onion rings." }
+  { id: 3, name: "Patty Planet", time: "12 mins", price: 59.99, desc: "Beef patty, fresh lettuce, tomato, cheese." },
+  { id: 4, name: "Triple Planet", time: "8 mins", price: 69.99, desc: "Three stacked patties, BBQ sauce, onion rings." }
 ];
 
 const quickBites = [
-  { id: 5, name: "Hotdog", img: "mini platter.jpg", time: "10 mins", price: 40, desc: "Classic hotdog, mustard, ketchup, fried onions." },
-  { id: 6, name: "Chef's Special", img: "mini platter.jpg", time: "20 mins", price: 299.99, desc: "Signature dish by our head chef with gourmet toppings." },
-  { id: 5, name: "Hotdog", img: "mini platter.jpg", time: "10 mins", price: 40, desc: "Classic hotdog, mustard, ketchup, fried onions." },
-  { id: 6, name: "Chef's Special", img: "mini platter.jpg", time: "20 mins", price: 299.99, desc: "Signature dish by our head chef with gourmet toppings." }
+  { id: 5, name: "Hotdog", time: "10 mins", price: 40, desc: "Classic hotdog, mustard, ketchup, fried onions." },
+  { id: 6, name: "Chef's Special", time: "20 mins", price: 299.99, desc: "Signature dish by our head chef with gourmet toppings." }
 ];
 
-function renderTrain() {
-  const train = document.getElementById("trainItems");
-  train.innerHTML = "";
-  platters.forEach(item => {
-    const div = document.createElement("div");
-    div.className = "item";
-    div.onclick = () => showFullscreen(item);
-    div.innerHTML = `
-      <img src="${item.img}" alt="${item.name}" />
-      <h4>${item.name}</h4>
-      <p class="description">${item.desc}</p>
-      <p>R${item.price} - ${item.time}</p>
-    `;
-    train.appendChild(div);
-  });
-}
-
-// Render popular dishes or quick bites carousel
-function renderCarousel(id) {
-  const container = document.getElementById(id);
-  container.innerHTML = "";
-  let data = [];
-  if (id === "carousel1") data = popularDishes;
-  else if (id === "carousel2") data = quickBites;
-  data.forEach(item => {
-    const div = document.createElement("div");
-    div.className = "item";
-    div.onclick = () => showFullscreen(item);
-    div.innerHTML = `
-      <img src="${item.img}" alt="${item.name}" />
-      <h4>${item.name}</h4>
-      <p>${item.desc}</p>
-      <p>R${item.price} - ${item.time}</p>
-    `;
-    container.appendChild(div);
-  });
+function getImageSrc(id) {
+  switch (id) {
+    case 1: return 'premium_platter.jpg';
+    case 2: return 'mini_platter.jpg';
+    case 3: return 'patty_planet.jpg';
+    case 4: return 'triple_planet.jpg';
+    case 5: return 'hotdog.jpg';
+    case 6: return 'chefs_special.jpg';
+    default: return 'default.jpg';
+  }
 }
 
 function toggleSidebar() {
@@ -74,11 +42,8 @@ function addToCart(id) {
   const item = [...platters, ...popularDishes, ...quickBites].find(i => i.id === id);
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   const existing = cart.find(i => i.id === item.id);
-  if (existing) {
-    existing.quantity++;
-  } else {
-    cart.push({ ...item, quantity: 1 });
-  }
+  if (existing) existing.quantity++;
+  else cart.push({ ...item, quantity: 1 });
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCart();
   renderPopupCart();
@@ -86,9 +51,7 @@ function addToCart(id) {
 
 function updateCart() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const count = cart.reduce((sum, i) => sum + i.quantity, 0);
-  const countElement = document.getElementById("cart-count");
-  if (countElement) countElement.textContent = count;
+  document.getElementById("cart-count").textContent = cart.reduce((sum, i) => sum + i.quantity, 0);
 }
 
 function toggleCartPopup() {
@@ -103,15 +66,15 @@ function renderPopupCart() {
   const totalElement = document.getElementById("popup-total");
   popupContainer.innerHTML = "";
   let total = 0;
-  cart.forEach((item, index) => {
+  cart.forEach((item, idx) => {
     total += item.price * item.quantity;
     const div = document.createElement("div");
     div.className = "popup-item";
     div.innerHTML = `
       <span>${item.name} (x${item.quantity})</span>
       <div>
-        <button onclick="changeQty(${index}, -1)">-</button>
-        <button onclick="changeQty(${index}, 1)">+</button>
+        <button onclick="changeQty(${idx}, -1)">-</button>
+        <button onclick="changeQty(${idx}, 1)">+</button>
       </div>
     `;
     popupContainer.appendChild(div);
@@ -143,15 +106,14 @@ function changeQtyUI(id, delta) {
   updateCart();
 }
 
-// Show fullscreen overlay with smooth scale
-function showFullscreen(item) {
+function showFullscreen(id) {
+  const item = [...platters, ...popularDishes, ...quickBites].find(i => i.id === id);
   const container = document.getElementById('fullscreenView');
 
-  // Create content div for animation
   container.innerHTML = `
     <div>
-      <button class="close-btn" aria-label="Close expanded view" onclick="closeFullscreen()">&times;</button>
-      <img src="${item.img}" alt="${item.name}" />
+      <button class="close-btn" aria-label="Close" onclick="closeFullscreen()">&times;</button>
+      <img src="${getImageSrc(id)}" alt="${item.name}" />
       <h4>${item.name}</h4>
       <p>${item.desc}</p>
       <p>R${item.price} - ${item.time}</p>
@@ -163,39 +125,25 @@ function showFullscreen(item) {
     </div>
   `;
 
-  // Show container
   container.style.display = 'flex';
-
-  // Trigger the animation by adding 'show' class after a tiny delay
-  setTimeout(() => {
-    container.classList.add('show');
-  }, 10);
-
-  // Close if clicking outside the content div
-  container.onclick = function(e) {
-    if (e.target === container) {
-      closeFullscreen();
-    }
+  setTimeout(() => container.classList.add('show'), 10);
+  container.onclick = e => {
+    if (e.target === container) closeFullscreen();
   };
 }
 
 function closeFullscreen() {
   const container = document.getElementById('fullscreenView');
   container.classList.remove('show');
-
-  // Wait for transition to end before hiding
-  container.querySelector('div').style.opacity = '0';
-  container.querySelector('div').style.transform = 'scale(0.8)';
-
+  const inner = container.querySelector('div');
+  inner.style.opacity = '0';
+  inner.style.transform = 'scale(0.8)';
   setTimeout(() => {
     container.style.display = 'none';
     container.innerHTML = '';
-  }, 300); // match the CSS transition duration
+  }, 300);
 }
 
 window.onload = () => {
-  renderTrain();
-  renderCarousel("carousel1");
-  renderCarousel("carousel2");
   updateCart();
 };
