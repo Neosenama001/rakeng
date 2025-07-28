@@ -1,5 +1,5 @@
 const platters = [
-  { id: 1, name: "Premium Platter", time: "15 mins", price: 249.99, desc: "Grilled chicken, spicy wings, samosas, fries." },
+  { id: 1, name: "section1", time: "15 mins", price: 249.99, desc: "Grilled chicken, spicy wings, samosas, fries." },
   { id: 2, name: "Mini Platter", time: "10 mins", price: 169.99, desc: "Mini sliders, spicy fries, nuggets." },
   { id: 3, name: "Premium Platter", time: "15 mins", price: 249.99, desc: "Grilled chicken, spicy wings, samosas, fries." },
   { id: 4, name: "Mini Platter", time: "10 mins", price: 169.99, desc: "Mini sliders, spicy fries, nuggets." },
