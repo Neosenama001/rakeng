@@ -7,13 +7,13 @@ const platters = [
 ];
 
 const popularDishes = [
-  { id: 3, name: "Patty Planet", time: "12 mins", price: 59.99, desc: "Beef patty, fresh lettuce, tomato, cheese." },
-  { id: 4, name: "Triple Planet", time: "8 mins", price: 69.99, desc: "Three stacked patties, BBQ sauce, onion rings." }
+  { id: 6, name: "Patty Planet", time: "12 mins", price: 59.99, desc: "Beef patty, fresh lettuce, tomato, cheese." },
+  { id: 7, name: "Triple Planet", time: "8 mins", price: 69.99, desc: "Three stacked patties, BBQ sauce, onion rings." }
 ];
 
 const quickBites = [
-  { id: 5, name: "Hotdog", time: "10 mins", price: 40, desc: "Classic hotdog, mustard, ketchup, fried onions." },
-  { id: 6, name: "Chef's Special", time: "20 mins", price: 299.99, desc: "Signature dish by our head chef with gourmet toppings." }
+  { id: 8, name: "Hotdog", time: "10 mins", price: 40, desc: "Classic hotdog, mustard, ketchup, fried onions." },
+  { id: 9, name: "Chef's Special", time: "20 mins", price: 299.99, desc: "Signature dish by our head chef with gourmet toppings." }
 ];
 
 function getImageSrc(id) {
