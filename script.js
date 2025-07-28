@@ -3,17 +3,18 @@ const platters = [
   { id: 2, name: "Mini Platter", time: "10 mins", price: 169.99, desc: "Mini sliders, spicy fries, nuggets." },
   { id: 3, name: "Premium Platter", time: "15 mins", price: 249.99, desc: "Grilled chicken, spicy wings, samosas, fries." },
   { id: 4, name: "Mini Platter", time: "10 mins", price: 169.99, desc: "Mini sliders, spicy fries, nuggets." },
-  { id: 5, name: "Mini Platter", time: "10 mins", price: 169.99, desc: "Mini sliders, spicy fries, nuggets." }
+  { id: 5, name: "Mini Platter", time: "10 mins", price: 169.99, desc: "Mini sliders, spicy fries, nuggets." },
+  { id: 6, name: "Mini Platter", time: "10 mins", price: 169.99, desc: "Mini sliders, spicy fries, nuggets." }
 ];
 
 const popularDishes = [
-  { id: 6, name: "Patty Planet", time: "12 mins", price: 59.99, desc: "Beef patty, fresh lettuce, tomato, cheese." },
-  { id: 7, name: "Triple Planet", time: "8 mins", price: 69.99, desc: "Three stacked patties, BBQ sauce, onion rings." }
+  { id: 7, name: "Patty Planet", time: "12 mins", price: 59.99, desc: "Beef patty, fresh lettuce, tomato, cheese." },
+  { id: 8, name: "Triple Planet", time: "8 mins", price: 69.99, desc: "Three stacked patties, BBQ sauce, onion rings." }
 ];
 
 const quickBites = [
-  { id: 8, name: "Hotdog", time: "10 mins", price: 40, desc: "Classic hotdog, mustard, ketchup, fried onions." },
-  { id: 9, name: "Chef's Special", time: "20 mins", price: 299.99, desc: "Signature dish by our head chef with gourmet toppings." }
+  { id: 9, name: "Hotdog", time: "10 mins", price: 40, desc: "Classic hotdog, mustard, ketchup, fried onions." },
+  { id: 10, name: "Chef's Special", time: "20 mins", price: 299.99, desc: "Signature dish by our head chef with gourmet toppings." }
 ];
 
 function getImageSrc(id) {
