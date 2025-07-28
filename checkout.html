@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout</title>
+  <link rel="stylesheet" href="checkout.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo"><a href="index.html"><img src="logo.png" alt="Logo" /></a></div>
+    <div class="hamburger" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
+    <div class="search"><input type="text" placeholder="Search food..."></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="checkout.html">Cart</a>
+    </div>
+  </nav>
+
+  <!-- Sidebar for mobile -->
+  <div class="sidebar" id="sidebar">
+    <a href="javascript:void(0)" class="close-btn" onclick="toggleSidebar()">×</a>
+    <a href="index.html">Home</a>
+    <a href="checkout.html">Cart</a>
+  </div>
+
+  <!-- Checkout Content -->
+  <div class="container">
+    <h1>Checkout</h1>
+    <div id="cart-items"></div>
+
+    <div class="form-section">
+      <label for="phone">Enter your phone number:</label>
+      <input type="text" id="phone" placeholder="e.g. +27 123 456 789" />
+      <button onclick="sendWhatsAppOrder()">Send Order via WhatsApp</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="animated-footer">
+    <div class="footer-content">
+      <img src="logo 1.jpeg" alt="Logo" />
+      <p>&copy; 2025 Food Ordering | Designed by Neo</p>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="mailto:contact@rakengfoods.com">Email</a>
+      </div>
+      <div class="socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Icon -->
+  <div id="cart-icon" onclick="toggleCartPopup()">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="cart-count">0</span>
+  </div>
+
+  <!-- Cart Popup -->
+  <div id="cart-popup">
+    <div class="popup-header">
+      <h3>Your Cart</h3>
+      <button onclick="toggleCartPopup()">×</button>
+    </div>
+    <div id="popup-cart-items"></div>
+    <div class="popup-footer">
+      <p>Total: R<span id="popup-total">0</span></p>
+      <a href="checkout.html"><button>Go to Checkout</button></a>
+    </div>
+  </div>
+
+  <div id="fullscreenView" class="fullscreen-overlay"></div>
+  <script src="checkout.js"></script>
+</body>
+</html>
